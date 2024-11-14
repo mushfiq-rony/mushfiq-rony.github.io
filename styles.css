@@ -354,14 +354,14 @@ profile-photo .img{
     position: relative;
     padding: 25px;
     text-align: center;
-    flex-basis: 32%;
+    flex-basis: 100%;
     transition: .3s;
 }
 .project i{
   background-color: #fed700;
   width: 60px;
   height: 60px;
-  color: #333;
+  color: #335;
   font-size: 26px;
   line-height: 60px;
   border-radius: 50%;
@@ -377,6 +377,65 @@ profile-photo .img{
 .project:hover{
   border-color: #fed700;
 }
+
+/*---------------------------achievement---------------------------*/
+.achievement-content{
+  padding: 90px 0;
+  /* color:#fff;  */
+}
+.achievement-title{
+  margin-bottom: 60px;
+  text-align: center;
+}
+.achievement-title h4{
+  text-transform: uppercase;
+  font-size: 40px;
+  line-height: 40px;
+  color: #fed700;
+  margin-bottom: 20px;
+}
+.achievement-title p{
+  color: #e5e5e5;
+}
+.achievement{
+  display: flex;
+  justify-content:space-between;
+  flex-wrap: wrap;
+}
+.achievement{
+    /* padding: 30px 15px; */
+    color: #e5e5e5;
+    border: 2px solid #e5e5e5;
+    border-radius: 10px;
+    width: 100%;
+    position: relative;
+    padding: 25px;
+    text-align: center;
+    flex-basis: 30%;
+    transition: .3s;
+}
+.achievement i{
+  background-color: #fed700;
+  width: 60px;
+  height: 60px;
+  color: #335;
+  font-size: 26px;
+  line-height: 60px;
+  border-radius: 50%;
+}
+.achievement h4{
+  font-size: 26px;
+  text-transform: capitalize;
+  margin: 20px 0;
+}
+.achievement p{
+  text-align: justify;
+}
+.achievement:hover{
+  border-color: #fed700;
+}
+
+
 
 
 
@@ -530,6 +589,10 @@ profile-photo .img{
     flex-basis: 100%;
     margin-bottom: 30px;
   }
-
+ .achievement{
+    flex-basis: 100%;
+    margin-bottom: 30px;
+  }
 }
+
 
