@@ -1,334 +1,869 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8"> 
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mushfiq</title>
-	<link rel="icon" href="https://i.ibb.co/1J2bpxP/icon.png" >
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Md. Mushfiqur Rahman | Data Science PhD Student</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
+  :root {
+    --bg: #F8F6F1;
+    --surface: #FFFFFF;
+    --text: #1A1714;
+    --muted: #6B6560;
+    --accent: #1D6A4A;
+    --accent-light: #E1F2EA;
+    --accent2: #8B3A1F;
+    --border: rgba(26,23,20,0.1);
+    --serif: 'DM Serif Display', Georgia, serif;
+    --sans: 'DM Sans', system-ui, sans-serif;
+  }
 
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" class="stylesheet">
-</head> 
+  body {
+    font-family: var(--sans);
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.65;
+    font-size: 16px;
+  }
 
+  /* NAV */
+  nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(248,246,241,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 5%;
+    height: 60px;
+  }
+  .nav-logo {
+    font-family: var(--serif);
+    font-size: 18px;
+    color: var(--text);
+    text-decoration: none;
+  }
+  .nav-links {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+  }
+  .nav-links a {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--muted);
+    text-decoration: none;
+    letter-spacing: 0.03em;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--text); }
+
+  /* HERO */
+  .hero {
+    min-height: 90vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 6rem 5% 4rem;
+    gap: 4rem;
+    align-items: center;
+  }
+  .hero-text h1 {
+    font-family: var(--serif);
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    line-height: 1.1;
+    margin-bottom: 1.25rem;
+    letter-spacing: -0.02em;
+  }
+  .hero-text h1 em {
+    font-style: italic;
+    color: var(--accent);
+  }
+  .hero-tagline {
+    font-size: 1.05rem;
+    color: var(--muted);
+    margin-bottom: 0.5rem;
+    font-weight: 300;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    font-size: 13px;
+  }
+  .hero-desc {
+    font-size: 1rem;
+    color: var(--muted);
+    margin-bottom: 2rem;
+    max-width: 440px;
+    line-height: 1.75;
+  }
+  .hero-links {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 22px;
+    border-radius: 2px;
+    font-size: 14px;
+    font-weight: 500;
+    text-decoration: none;
+    transition: all 0.2s;
+    letter-spacing: 0.02em;
+  }
+  .btn-primary {
+    background: var(--accent);
+    color: #fff;
+  }
+  .btn-primary:hover { background: #155a3c; }
+  .btn-outline {
+    border: 1px solid var(--border);
+    color: var(--text);
+    background: transparent;
+  }
+  .btn-outline:hover { background: var(--surface); border-color: var(--text); }
+
+  .hero-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 2.5rem;
+  }
+  .hero-card .initials {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: var(--accent-light);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--serif);
+    font-size: 1.5rem;
+    color: var(--accent);
+    margin-bottom: 1.5rem;
+  }
+  .hero-card h2 {
+    font-family: var(--serif);
+    font-size: 1.4rem;
+    margin-bottom: 0.25rem;
+  }
+  .hero-card .role {
+    font-size: 13px;
+    color: var(--muted);
+    margin-bottom: 1.5rem;
+    font-weight: 300;
+  }
+  .info-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 13.5px;
+    color: var(--muted);
+    margin-bottom: 0.6rem;
+  }
+  .info-row svg { flex-shrink: 0; margin-top: 2px; }
+  .info-row a { color: var(--accent); text-decoration: none; }
+  .info-row a:hover { text-decoration: underline; }
+  .badge-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 1.5rem;
+  }
+  .badge {
+    font-size: 12px;
+    padding: 4px 12px;
+    background: var(--accent-light);
+    color: var(--accent);
+    border-radius: 2px;
+    font-weight: 500;
+  }
+
+  /* SECTIONS */
+  section {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 5rem 5%;
+  }
+  .section-label {
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--accent2);
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+  }
+  .section-title {
+    font-family: var(--serif);
+    font-size: clamp(1.8rem, 3vw, 2.5rem);
+    margin-bottom: 2.5rem;
+    letter-spacing: -0.02em;
+  }
+  .divider {
+    border: none;
+    border-top: 1px solid var(--border);
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  /* ABOUT */
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: start;
+  }
+  .about-text p {
+    color: var(--muted);
+    margin-bottom: 1rem;
+    line-height: 1.8;
+  }
+  .interests-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  .interests-list li {
+    font-size: 14px;
+    color: var(--muted);
+    padding-left: 1.2rem;
+    position: relative;
+  }
+  .interests-list li::before {
+    content: '—';
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+    font-weight: 500;
+  }
+  .interest-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 1.75rem;
+  }
+  .interest-card h3 {
+    font-family: var(--serif);
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+  }
+
+  /* EDUCATION */
+  .edu-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+  }
+  .edu-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 1.75rem;
+  }
+  .edu-card .degree {
+    font-size: 12px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--accent);
+    margin-bottom: 0.4rem;
+  }
+  .edu-card h3 {
+    font-family: var(--serif);
+    font-size: 1.15rem;
+    margin-bottom: 0.25rem;
+  }
+  .edu-card .dept {
+    font-size: 13.5px;
+    color: var(--muted);
+    margin-bottom: 0.75rem;
+  }
+  .edu-card .year {
+    font-size: 12px;
+    color: var(--muted);
+    font-weight: 300;
+  }
+  .edu-card .gpa {
+    font-size: 13px;
+    color: var(--accent2);
+    font-weight: 500;
+    margin-top: 0.5rem;
+  }
+
+  /* EXPERIENCE */
+  .exp-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+  .exp-item {
+    display: grid;
+    grid-template-columns: 180px 1fr;
+    gap: 2rem;
+    padding: 2rem 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .exp-item:first-child { border-top: 1px solid var(--border); }
+  .exp-meta .exp-year {
+    font-size: 12px;
+    color: var(--muted);
+    font-weight: 300;
+    margin-bottom: 0.3rem;
+    letter-spacing: 0.05em;
+  }
+  .exp-meta .exp-org {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--text);
+    line-height: 1.4;
+  }
+  .exp-body h3 {
+    font-family: var(--serif);
+    font-size: 1.1rem;
+    margin-bottom: 0.6rem;
+  }
+  .exp-body ul {
+    padding-left: 1.2rem;
+    color: var(--muted);
+    font-size: 14px;
+    line-height: 1.7;
+  }
+  .exp-body ul li { margin-bottom: 0.3rem; }
+
+  /* PUBLICATIONS */
+  .pub-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+  .pub-item {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 1.5rem;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 1.25rem;
+    align-items: start;
+  }
+  .pub-num {
+    font-family: var(--serif);
+    font-size: 1.5rem;
+    color: var(--border);
+    line-height: 1;
+    min-width: 2rem;
+    text-align: right;
+    padding-top: 2px;
+  }
+  .pub-title {
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--text);
+    margin-bottom: 0.25rem;
+    line-height: 1.5;
+  }
+  .pub-authors {
+    font-size: 13px;
+    color: var(--muted);
+    margin-bottom: 0.25rem;
+    line-height: 1.5;
+  }
+  .pub-venue {
+    font-size: 12.5px;
+    color: var(--accent);
+    font-style: italic;
+  }
+  .pub-venue a { color: inherit; }
+
+  /* PRESENTATIONS */
+  .pres-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.25rem;
+  }
+  .pres-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 1.5rem;
+  }
+  .pres-card .pres-event {
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--accent2);
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+  }
+  .pres-card h3 {
+    font-size: 14.5px;
+    font-weight: 500;
+    line-height: 1.45;
+    margin-bottom: 0.5rem;
+  }
+  .pres-card .pres-year {
+    font-size: 12px;
+    color: var(--muted);
+  }
+  .award-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 11.5px;
+    padding: 3px 10px;
+    background: #FFF8EC;
+    color: #85580B;
+    border: 1px solid #F0CC80;
+    border-radius: 2px;
+    font-weight: 500;
+    margin-top: 0.5rem;
+  }
+
+  /* SKILLS */
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.25rem;
+  }
+  .skill-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 1.5rem;
+  }
+  .skill-card h3 {
+    font-size: 14px;
+    font-weight: 500;
+    margin-bottom: 0.75rem;
+    color: var(--text);
+  }
+  .skill-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+  .skill-tag {
+    font-size: 12px;
+    padding: 3px 10px;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 2px;
+    color: var(--muted);
+  }
+
+  /* ACHIEVEMENTS */
+  .ach-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.25rem;
+  }
+  .ach-card {
+    border-left: 3px solid var(--accent);
+    padding: 1.25rem 1.5rem;
+    background: var(--surface);
+    border-radius: 0 4px 4px 0;
+  }
+  .ach-card h3 {
+    font-family: var(--serif);
+    font-size: 1.05rem;
+    margin-bottom: 0.25rem;
+  }
+  .ach-card p {
+    font-size: 13px;
+    color: var(--muted);
+  }
+  .ach-card .ach-year {
+    font-size: 12px;
+    color: var(--accent2);
+    font-weight: 500;
+    margin-top: 0.5rem;
+  }
+
+  /* FOOTER */
+  footer {
+    border-top: 1px solid var(--border);
+    background: var(--surface);
+    padding: 3rem 5%;
+    text-align: center;
+    color: var(--muted);
+    font-size: 13px;
+  }
+  footer a { color: var(--accent); text-decoration: none; }
+
+  /* RESPONSIVE */
+  @media (max-width: 768px) {
+    .hero { grid-template-columns: 1fr; min-height: auto; padding: 3rem 5%; }
+    .about-grid, .edu-grid, .pres-grid, .skills-grid, .ach-grid { grid-template-columns: 1fr; }
+    .exp-item { grid-template-columns: 1fr; gap: 0.5rem; }
+    .nav-links { display: none; }
+  }
+</style>
+</head>
 <body>
 
-    <!-------------------------- Header Area -------------------------->
-    <header class="header-area">
-        <div class="container">
-            <div class="header">
-            
-                <a href="" class="logo">
-                    <img src="files/signaturecropped.png" alt="" class="signature">
-                    <i class="fa fa-bolt"></i>
-                </a>
-                   
-                <ul class="navbar">
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#education">Education</a></li>
-                    <li><a href="#projects">Research & Projects</a></li>
-					<li><a href="#achievements">Achievements</a></li>
-					
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-                
-                <div class="menu_icon">
-                    <i class="fa fa-bars"></i>
-                </div>
+<nav>
+  <a class="nav-logo" href="#">M. Rahman</a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#education">Education</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#publications">Publications</a></li>
+    <li><a href="#presentations">Presentations</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
 
-            </div>
-        </div> 
-    </header>
- 
-    <!-------------------------- Home Page -------------------------->
-    <div class="FirstElement" id="home">
-        <div class="profile-photo">
-            <img src="files/photo!!.jpg" alt="profile picture">
-        </div>
-        <div class="profile-text">
-            <h5>Hi I'm </h5><br>
-            <h1>MUSHFIQ</h1><br>
-            <p>
-              Welcome to my profile! I am a first-year PhD student in the Department of Biostatistics and Data Science at the University of Mississippi Medical Center.
-            
-            </p>
-            
-            <div class="btn-group">
-                <a href="files/MushfiqResume.pdf" class="btn   active">Download CV</a>
-                <a href="mailto:mushfiq.dustat@gmail.com" class="btn">Contact</a> <!-- This needs to change -->
-            </div>
-
-            <div class="social">
-                <a href="mailto:mushfiq.dustat@gmail.com"><i class="fa fa-envelope"></i></a>
-                <a href="https://github.com/mushfiq-rony"><i class="fa-brands fa-github"></i></a>
-                <!--a href="https://leetcode.com/sowndharnewbie/"><i class="fa fa-code"></i></a-->
-                <a href="https://www.linkedin.com/in/mushfiq-stat/"><i class="fa-brands fa-linkedin"></i></a>
-            </div>
-        </div>
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-text">
+    <p class="hero-tagline">PhD Student · Data Science</p>
+    <h1>Md. <em>Mushfiqur</em> Rahman</h1>
+    <p class="hero-desc">Statistician and data scientist working at the intersection of biostatistics, machine learning, and clinical epidemiology. Currently pursuing a PhD at the University of Mississippi Medical Center.</p>
+    <div class="hero-links">
+      <a class="btn btn-primary" href="https://scholar.google.com/citations?user=eyDDrjsAAAAJ&hl=en" target="_blank">Google Scholar</a>
+      <a class="btn btn-outline" href="https://www.linkedin.com/in/mushfiq-stat/" target="_blank">LinkedIn</a>
+      <a class="btn btn-outline" href="mailto:XX@gmail.com">Email</a>
     </div>
+  </div>
 
-        <!-------------------------- About Section -------------------------->
-    <section class="about-area" id="about">
-        <div class="container">
-            <div class="about">
-                
-                <div class="about-content">
-                    <h4>About Me</h4>
-                    <ul>
-                      <li>I am currently pursuing a PhD in Biostatistics and Data Science at the University of Mississippi Medical Center, with a strong foundation in statistical modeling, data analytics, and visualization. I work with tools like R, Python, Stata, SAS, and SPSS.</li>
-                      <li>My expertise in these areas enables me to approach projects with confidence. I strongly believe in the value of continuous learning and staying adaptable in the ever-evolving field of statistics.</li>
-                      <li>I’m always eager to learn and embrace new methods and techniques. Feel free to explore my work, and reach out if you have questions or collaboration ideas!</li>
-                    </ul>
-                </div>
-                                  
-                <div class="about-skills">
-                    <ul>
-                        <li>Name: MD MUSHFIQUR RAHMAN</li>
-                        <!--li>Age:</li-->     
-                        <li>From: Bangladesh</li>
-                        <li>Email: mushfiq.dustat@gmail.com</li>
-                        <li>Availabiltiy: For collaboration in research articles</li>
-                        <li>Experience&gt; 4yr</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-
-
-        <!-------------- Education & Internship -------------->
-    <section class="education-content" id="education">
-        <div class="container">
-            <div class="row">
-                <div class="education ">
-                    <h3 class="title">Education</h3>
-                    <div class="row">
-                        <div class="timeline-box">
-                            <div class="timeline">
-
-                                <!-- Timeline-item -->
-                                <div class="timeline-item">
-                                    <div class="circle-dot"></div>
-                                    <h3 class="timeline-title">
-                                        Doctor of Philosophy (1st year student)
-                                    </h3>
-                                    <h4 class="timeline-title"> <a href="https://www.umc.edu/SoPH/Departments-and-Faculty/Data-Science/Department-of-Data-Science-Home.html">
-									Department of Data Science
-										</a> <br> 
-										University of Mississippi Medical Center
-										</h4>
-                                    <h4 class="timeline-title">
-                                        <i class="fa fa-calendar"></i> 2024-ongoing
-                                    </h4>
-                                </div> 
-								<!-- Timeline-item -->
-                                <div class="timeline-item">
-                                    <div class="circle-dot"></div>
-                                    <h3 class="timeline-title">
-                                        Bachelor of Science (CGPA 3.81 out of 4.00)
-                                    </h3>
-                                    <h4 class="timeline-title"> <a href="https://stat.du.ac.bd">Department of Statistics
-										</a> <br> 
-										University of Dhaka
-										</h4>
-                                    <h4 class="timeline-title">
-                                        <i class="fa fa-calendar"></i> 2018-2022
-                                    </h4>
-                                </div> 
-                                <!-- Timeline-item -->
-                                <div class="timeline-item">
-                                    <div class="circle-dot"></div>
-                                    <h3 class="timeline-title">Higher Secondary Certificate (GPA 5.00 out of 5.00)</h3>
-                                    <h4 class="timeline-title"> <a href="https://scpsc.edu.bd/">
-											Savar Cantonment Public School & College</a></h4>
-                                    <h4 class="timeline-title">
-                                        <i class="fa fa-calendar"></i> 2017-2018
-                                    </h4>
-                                </div>
-                                <!-- Timeline-item -->
-                                <div class="timeline-item">
-                                    <div class="circle-dot"></div>
-                                    <h3 class="timeline-title">
-                                        Secondary School Certificate (GPA 5.00 out of 5.00)
-                                    </h3>
-                                    <h4 class="timeline-title"><a href="https://sbngbhs.edu.bd/"> Sher-E-Bangla Nagar Govt' Boys High School</a></h4>
-                                    <h4 class="timeline-title">
-                                        <i class="fa fa-calendar"></i> 2014-2015
-                                    </h4>
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="internship">
-                    <h3 class="title">Work Experience</h3>
-                    <div class="row">
-                        <div class="timeline-box">
-                            <div class="timeline">
-                                
-                                <!-- Timeline-item -->
-                                <div class="timeline-item">
-                                    <div class="circle-dot"></div>
-                                    <h3 class="timeline-title">
-                                        Data Management Assistant
-                                    </h3>
-                                    <h4 class="timeline-title">International Center for Diarrhoeal Disease Research, Bangladesh (icddr,b)</h4>
-                                    <h4 class="timeline-title">
-                                        <i class="fa fa-calendar"></i> October 2023 - June 2024
-                                    </h4>
-                                    <li class="timeline-text">Organized large datasets for accurate and efficient data processing.</li>
-									<li class="timeline-text">Used STATA, SPSS, and R for data management and statistical analysis.</li>
-									<li class="timeline-text">Contributed to interim analyses of clinical trials to assess drug efficacy.</li>
-									<li class="timeline-text">Developed a Shiny app to showcase and analyze study data.</li>
-
-                                </div> 
-                                <!-- Timeline-item -->
-                                <div class="timeline-item">
-                                    <div class="circle-dot"></div>
-                                    <h3 class="timeline-title">Research Assistant</h3>
-                                    <h4 class="timeline-title">Save the Children in Bangladesh</h4>
-                                    <h4 class="timeline-title">
-                                        <i class="fa fa-calendar"></i> May 2023 - July 2023
-                                    </h4>
-									<li class="timeline-text">Conducted hypothesis testing and multivariate analysis to examine maternal and newborn care indicators, including ANC visits, delivery mode, and newborn care practices.</li>
-									<li class="timeline-text">Created visualizations for survey findings and contributed to data management, including the development of a data dictionary.</li>
-									<li class="timeline-text">Assessed intervention effectiveness using the LiST (Lives Saved Tool) for project evaluation.</li>
-                                </div>
-                                
-								
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-
-
-        <!-------------------------- Projects -------------------------->
-    <section class="project-content" id="projects">
-        <div class="container">
-            <div class="project-title">
-                <h4>My Research & Projects</h4>
-                <p>Discover my Rsearch and Projects</p>
-            </div>
-            <div class="projects">
-                <!-- 1st Project -->
-                <div class="project">
-                    <i class="fa fa-graduation-cap"></i>
-                    <h4>Research Articles</h4>
-					<li>
-					Hassan, Md. Mehedi and Mamun Billah, Md. Al and <strong>Rahman, Md. Mushfiqur</strong> and Zaman,
-					Sadika and Hasan Shakil, Md. Mehadi and Angon, Jarif Huda. <strong>Early Predictive Analytics
-					in Healthcare for Diabetes Prediction Using Machine Learning Approach</strong>. 2021 12th
-					International Conference on Computing Communication and Networking Technologies (ICCCNT).
-					2021, Pages 01-05. DOI: <a href="https://ieeexplore.ieee.org/document/9579799">10.1109/ICCCNT51525.2021.9579799</a>. </li>
-					<br>
-					<li>
-					Hassan, Md. Mehedi and Hassan, Md. Mahedi and Akter, Laboni and <strong>Rahman, Md. Mushfiqur</strong> and Zaman, Sadika and Khan Md. Hasib and Jahan, Nusrat and Smrity, Raisun Nasa and
-					Farhana, Jerin and M. Raihan and Mollick, Swarnali. <strong>Efficient Prediction of Water Quality Index (WQI) Using Machine Learning Algorithms</strong>. 2021, volume 1, pages 86-97. DOI:
-<a href="https://www.atlantis-press.com/journals/hcis/125965714"> 10.2991/hcis.k.211203.001</a>. </li>
-					<br>
-					<li>
-					 Hassan, Md.Mehedi and Raihan, M. and Khan, Md. Hasanul Banna and Dhali, Tutul and <strong>Rahman, Md. Mushfiqur</strong> and Sneha, Zarmina Huda. <strong>A Hybrid Machine Learning Approach to
- Predict the Risk of Having Stroke</strong>. 2022, pages 460-465. DOI: <a href="https://dl.acm.org/doi/10.1145/3542954.3543020">10.1145/3542954.3543020</a>.</li>
-					<br>
-					<li>
-					Hassan, Md. Mehedi and Zaman, Sadika and <strong>Rahman, Md. Mushfiqur</strong> and Bairagi, Anupam
- Kumar and El-Shafai, Walid and Rathore, Rajkumar Singh and Gupta, Deepak. <strong>Efficient pre
-diction of coronary artery disease using machine learning algorithms with feature se
-lection techniques</strong>. Computers and Electrical Engineering, 115, 109130, 2024. ISSN 0045-7906.
-<a href="https://www.sciencedirect.com/science/article/abs/pii/S0045790624000582?via%3Dihub"> https://doi.org/10.1016/j.compeleceng.2024.109130</a>
- </li>	
-                </div>
-				
-                 <!-- 2nd Project -->
-                 <div class="project">
-                    <i class="fa fa-book"></i>
-                    <h4>Projects</h4>
-                    <p>01. Socio-Demographic Factors Affecting Maternal Health Care in Bangladesh</p>
-					<p>02. Early Childhood Development: Variation within Age at Marriage and Birth of Children among Women
- in Bangladesh (BS Final year Project).</p>
-                </div>
-				
-                
-            </div>
-        </div>
-    </section>
-	
-	
-        <!-------------------------- achievements -------------------------->
-<section class="achievement-content" id="achievements">
-    <div class="container">
-        <div class="achievement-title">
-            <h4>My Achievements</h4>
-        </div>
-
-        <!-- 1st Achievements -->
-        <div class="achievement">
-            
-            <h4>Winner</h4>
-            <p>Data Analysis Competition 2020, QMH Statistics Club, Department of Statistics, University of Dhaka.</p>
-        </div>
-
-        <!-- 2nd Achievements -->
-        <div class="achievement">
-            
-            <h4>Best Paper Award, 2022</h4>
-            <p> Human-Centric Intelligent System</p>
-            
-        </div>
-
-        <!-- 3rd Achievements -->
-        <div class="achievement">
-            
-            <h4>Government Honours Scholarship, 2024</h4>
-            <p>Directorate of Secondary and Higher Education, People’s Republic of Bangladesh</p>
-
-        </div>
+  <div class="hero-card">
+    <div class="initials">MR</div>
+    <h2>Md. Mushfiqur Rahman</h2>
+    <p class="role">PhD Candidate, Department of Data Science</p>
+    <div class="info-row">
+      <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 21c-4.97-5.06-8-8.63-8-12a8 8 0 1116 0c0 3.37-3.03 6.94-8 12z"/><circle cx="12" cy="9" r="2.5"/></svg>
+      University of Mississippi Medical Center, Jackson, MS
     </div>
+    <div class="info-row">
+      <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25H4.5a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5H4.5a2.25 2.25 0 00-2.25 2.25m19.5 0l-9.75 6.75L2.25 6.75"/></svg>
+      <a href="mailto:XX@gmail.com">XX@gmail.com</a>
+    </div>
+    <div class="info-row">
+      <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 6.75z"/></svg>
+      +1 (769) 261 4906
+    </div>
+    <div class="badge-row">
+      <span class="badge">Biostatistics</span>
+      <span class="badge">Machine Learning</span>
+      <span class="badge">Clinical Trials</span>
+      <span class="badge">R · Python</span>
+    </div>
+  </div>
+</div>
+
+<hr class="divider"/>
+
+<!-- ABOUT -->
+<section id="about">
+  <p class="section-label">Background</p>
+  <h2 class="section-title">About Me</h2>
+  <div class="about-grid">
+    <div class="about-text">
+      <p>I am a first-year PhD student in Data Science at the University of Mississippi Medical Center (2024–present). My research interests span biostatistics, machine learning in healthcare, and functional data analysis.</p>
+      <p>I hold a BS in Statistics (CGPA 3.81/4.0) from the University of Dhaka, where I developed a foundation in statistical inference, multivariate analysis, and clinical data management.</p>
+      <p>Prior to my PhD, I worked as a Data Management Assistant at icddr,b — one of the world's leading diarrheal disease research centers — and as a Research Assistant at Save the Children Bangladesh, contributing to maternal and newborn health analytics.</p>
+    </div>
+    <div class="interest-card">
+      <h3>Research Interests</h3>
+      <ul class="interests-list">
+        <li>Machine learning for clinical prediction & disease diagnosis</li>
+        <li>Functional & longitudinal data analysis</li>
+        <li>Biostatistics for randomized controlled trials</li>
+        <li>Neurocognitive analytics & sleep science</li>
+        <li>Diarrheal disease epidemiology & surveillance</li>
+        <li>Maternal and child health indicators</li>
+        <li>Statistical computing in R and Python</li>
+      </ul>
+    </div>
+  </div>
 </section>
 
-        <!-------------------------- Contact Me -------------------------->
+<hr class="divider"/>
 
-    <section class="contact-content" id="contact">
-        <div class="container">
-            <div class="contact-title">
-                <h4>Contact Me</h4>
-                <p>Get In Touch</p>
-            </div>
-            <div class="contact">
-                <form name="submitToGoogleSheet">
-                    <input type="text" name="NAME" placeholder="Name" required>
-                    <input type="email" name="EMAIL" placeholder="Email" required>
-                    <input type="text" name="SUBJECT" placeholder="Subject">
-                    <textarea name="MESSAGE" placeholder="Message"></textarea>
-                    <input type="submit" value="Send Message" class="submit">
-                </form>
-                <span id="msg"></span>
-            </div>
-        </div>
-    </section>
-        
-    <!-------------------------- JS -------------------------->
-    <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
-    <script src="https://unpkg.com/scrollreveal"></script>
-    <script src="script.js"></script>
-    
-    <!-------------------------- Footer section -------------------------->
-   <footer class="footer">
-    <small class="message">Thanks for visiting!</small>
-    <small class="copyright">&copy; Copyright 2024. All rights reserved.</small>
-   </footer>
+<!-- EDUCATION -->
+<section id="education">
+  <p class="section-label">Academic Training</p>
+  <h2 class="section-title">Education</h2>
+  <div class="edu-grid">
+    <div class="edu-card">
+      <p class="degree">PhD</p>
+      <h3>University of Mississippi Medical Center</h3>
+      <p class="dept">Department of Data Science</p>
+      <p class="year">2024 – Present &nbsp;·&nbsp; Jackson, Mississippi</p>
+      <p class="gpa">First year student (currently enrolled)</p>
+    </div>
+    <div class="edu-card">
+      <p class="degree">BS Statistics</p>
+      <h3>University of Dhaka</h3>
+      <p class="dept">Department of Statistics</p>
+      <p class="year">2018 – 2023 &nbsp;·&nbsp; Dhaka, Bangladesh</p>
+      <p class="gpa">CGPA 3.81 / 4.0 &nbsp;·&nbsp; 3.89 on WES Evaluation</p>
+    </div>
+  </div>
+</section>
+
+<hr class="divider"/>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <p class="section-label">Professional History</p>
+  <h2 class="section-title">Experience</h2>
+  <div class="exp-list">
+    <div class="exp-item">
+      <div class="exp-meta">
+        <p class="exp-year">Oct 2023 – Jun 2024</p>
+        <p class="exp-org">icddr,b</p>
+      </div>
+      <div class="exp-body">
+        <h3>Data Management Assistant</h3>
+        <ul>
+          <li>Managed large datasets using STATA, SPSS, and R; conducted interim analyses for clinical trials</li>
+          <li>Analyzed Diarrheal Disease Surveillance System (DDSS) at the Dhaka Hospital</li>
+          <li>Participated in a Phase III double-blind RCT using a probiotic for monitoring stunted children</li>
+          <li>Built a Shiny app to showcase and analyze study metrics</li>
+        </ul>
+      </div>
+    </div>
+    <div class="exp-item">
+      <div class="exp-meta">
+        <p class="exp-year">May 2023 – Jul 2023</p>
+        <p class="exp-org">Save the Children Bangladesh</p>
+      </div>
+      <div class="exp-body">
+        <h3>Research Assistant</h3>
+        <ul>
+          <li>Measured maternal and newborn care indicators (ANC visits, essential newborn care, delivery mode)</li>
+          <li>Conducted multivariate analysis on ANC utilization and newborn care practices</li>
+          <li>Used the LiST tool to assess effectiveness of project interventions</li>
+          <li>Created data dictionary and managed survey data</li>
+        </ul>
+      </div>
+    </div>
+    <div class="exp-item">
+      <div class="exp-meta">
+        <p class="exp-year">Nov 2020 – Jul 2021</p>
+        <p class="exp-org">Statistical Research Consultancy Bangladesh (SRCBD)</p>
+      </div>
+      <div class="exp-body">
+        <h3>Trainee Data Analyst (Internship)</h3>
+        <ul>
+          <li>Aided in curriculum design for R programming courses</li>
+          <li>Performed data visualization using ggplot2 and hypothesis testing in R</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider"/>
+
+<!-- PUBLICATIONS -->
+<section id="publications">
+  <p class="section-label">Scholarly Work</p>
+  <h2 class="section-title">Publications</h2>
+  <div class="pub-list">
+
+    <div class="pub-item">
+      <span class="pub-num">01</span>
+      <div>
+        <p class="pub-title">Early Predictive Analytics in Healthcare for Diabetes Prediction Using Machine Learning Approach</p>
+        <p class="pub-authors">Hassan, Md. Mehedi; Mamun Billah, Md. Al; <strong>Rahman, Md. Mushfiqur</strong>; Zaman, Sadika; Hasan Shakil, Md. Mehadi; Angon, Jarif Huda</p>
+        <p class="pub-venue">12th International Conference on Computing Communication and Networking Technologies (ICCCNT), 2021 &nbsp;·&nbsp; <a href="https://doi.org/10.1109/ICCCNT51525.2021.9579799" target="_blank">DOI →</a></p>
+      </div>
+    </div>
+
+    <div class="pub-item">
+      <span class="pub-num">02</span>
+      <div>
+        <p class="pub-title">Efficient Prediction of Water Quality Index (WQI) Using Machine Learning Algorithms</p>
+        <p class="pub-authors">Hassan, Md. Mehedi; Hassan, Md. Mahedi; Akter, Laboni; <strong>Rahman, Md. Mushfiqur</strong>; et al.</p>
+        <p class="pub-venue">Human-Centric Intelligent Systems, Vol. 1, pp. 86–97, 2021 &nbsp;·&nbsp; <a href="https://doi.org/10.2991/hcis.k.211203.001" target="_blank">DOI →</a></p>
+      </div>
+    </div>
+
+    <div class="pub-item">
+      <span class="pub-num">03</span>
+      <div>
+        <p class="pub-title">A Hybrid Machine Learning Approach to Predict the Risk of Having Stroke</p>
+        <p class="pub-authors">Hassan, Md. Mehedi; Raihan, M.; Khan, Md. Hasanul Banna; Dhali, Tutul; <strong>Rahman, Md. Mushfiqur</strong>; Sneha, Zarmina Huda</p>
+        <p class="pub-venue">ACM, 2022, pp. 460–465 &nbsp;·&nbsp; <a href="https://dl.acm.org/doi/10.1145/3542954.3543020" target="_blank">DOI →</a></p>
+      </div>
+    </div>
+
+    <div class="pub-item">
+      <span class="pub-num">04</span>
+      <div>
+        <p class="pub-title">Efficient Prediction of Coronary Artery Disease Using Machine Learning Algorithms with Feature Selection Techniques</p>
+        <p class="pub-authors">Hassan, Md. Mehedi; Zaman, Sadika; <strong>Rahman, Md. Mushfiqur</strong>; Bairagi, Anupam Kumar; El-Shafai, Walid; Rathore, Rajkumar Singh; Gupta, Deepak</p>
+        <p class="pub-venue">Computers and Electrical Engineering, Vol. 115, 109130, 2024 &nbsp;·&nbsp; <a href="https://doi.org/10.1016/j.compeleceng.2024.109130" target="_blank">DOI →</a></p>
+      </div>
+    </div>
+
+    <div class="pub-item">
+      <span class="pub-num">05</span>
+      <div>
+        <p class="pub-title">Community-Level Expenses for Under-5 Diarrhoeal Cases Prior to Reporting at Dhaka Hospital: A Cross-Sectional Analysis in Bangladesh</p>
+        <p class="pub-authors">Md Fuad Al Fidah; Md Ridwan Islam; <strong>Rahman, Md. Mushfiqur</strong>; Chisti, Mohammod Jobayer; Faruque, ASG; Ahmed, Tahmeed; Nuzhat, Sharika</p>
+        <p class="pub-venue">Clinical Epidemiology and Global Health, Vol. 31, 101846, 2025 &nbsp;·&nbsp; <a href="https://doi.org/10.1016/j.cegh.2024.101846" target="_blank">DOI →</a></p>
+      </div>
+    </div>
+
+    <div class="pub-item">
+      <span class="pub-num">06</span>
+      <div>
+        <p class="pub-title">Antibiotic Use Prior to Attending a Large Diarrheal Disease Hospital Among Preschool Children: A Cross-Sectional Study in Bangladesh</p>
+        <p class="pub-authors">Bashar, Syed Jayedul; Islam, Md Ridwan; Nuzhat, Sharika; Amin, Rukaeya; <strong>Rahman, Md. Mushfiqur</strong>; et al.</p>
+        <p class="pub-venue">PLOS ONE, 19(11): e0314325, 2024 &nbsp;·&nbsp; <a href="https://doi.org/10.1371/journal.pone.0314325" target="_blank">DOI →</a></p>
+      </div>
+    </div>
+
+    <div class="pub-item">
+      <span class="pub-num">07</span>
+      <div>
+        <p class="pub-title">Maternal Knowledge, Attitude and Practice Regarding Commercial Oral Rehydration Salt Solution: Experience from a Diarrhoeal Disease Hospital in Bangladesh</p>
+        <p class="pub-authors">Nuzhat, Sharika; Islam, Md Ridwan; Fidah, Md Fuad Al; <strong>Rahman, Md Mushfiqur</strong>; Paul, Sneha; et al.</p>
+        <p class="pub-venue">BMJ Paediatrics Open, 9(1): e003299, 2025 &nbsp;·&nbsp; <a href="https://doi.org/10.1136/bmjpo-2024-003299" target="_blank">DOI →</a></p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<hr class="divider"/>
+
+<!-- PRESENTATIONS -->
+<section id="presentations">
+  <p class="section-label">Conferences & Talks</p>
+  <h2 class="section-title">Presentations</h2>
+  <div class="pres-grid">
+    <div class="pres-card">
+      <p class="pres-event">Mississippi Academy of Science</p>
+      <h3>69th Annual Meeting</h3>
+      <p class="pres-year">2024</p>
+    </div>
+    <div class="pres-card">
+      <p class="pres-event">Mississippi Academy of Science</p>
+      <h3>70th Annual Meeting</h3>
+      <p class="pres-year">2025</p>
+    </div>
+    <div class="pres-card">
+      <p class="pres-event">ASA Alabama–Mississippi Chapter</p>
+      <h3>Annual Chapter Meeting</h3>
+      <p class="pres-year">2024</p>
+    </div>
+    <div class="pres-card">
+      <p class="pres-event">ASA Alabama–Mississippi Chapter</p>
+      <h3>Annual Chapter Meeting</h3>
+      <p class="pres-year">2025</p>
+    </div>
+    <div class="pres-card">
+      <p class="pres-event">SOPH Research Day 2026</p>
+      <h3>Quantifying Neurocognitive Effects of Sleep Stage Architecture in OSA: A Variable Domain Functional Regression Approach</h3>
+      <p class="pres-year">2026</p>
+      <div class="award-badge">🥈 2nd Place – Best Presentation</div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider"/>
+
+<!-- SKILLS -->
+<section id="skills">
+  <p class="section-label">Technical Toolkit</p>
+  <h2 class="section-title">Skills</h2>
+  <div class="skills-grid">
+    <div class="skill-card">
+      <h3>Programming Languages</h3>
+      <div class="skill-tags">
+        <span class="skill-tag">R</span>
+        <span class="skill-tag">Python</span>
+        <span class="skill-tag">STATA</span>
+        <span class="skill-tag">SPSS</span>
+        <span class="skill-tag">SAS</span>
+        <span class="skill-tag">MATLAB</span>
+        <span class="skill-tag">PowerBI</span>
+      </div>
+    </div>
+    <div class="skill-card">
+      <h3>R Ecosystem</h3>
+      <div class="skill-tags">
+        <span class="skill-tag">ggplot2</span>
+        <span class="skill-tag">dplyr</span>
+        <span class="skill-tag">tidyr</span>
+        <span class="skill-tag">caret</span>
+        <span class="skill-tag">tidymodels</span>
+        <span class="skill-tag">Shiny</span>
+        <span class="skill-tag">Quarto</span>
+        <span class="skill-tag">survival</span>
+        <span class="skill-tag">maptools</span>
+      </div>
+    </div>
+    <div class="skill-card">
+      <h3>Tools & Software</h3>
+      <div class="skill-tags">
+        <span class="skill-tag">LaTeX</span>
+        <span class="skill-tag">Excel</span>
+        <span class="skill-tag">Word</span>
+        <span class="skill-tag">PowerPoint</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider"/>
+
+<!-- ACHIEVEMENTS -->
+<section id="achievements">
+  <p class="section-label">Recognition</p>
+  <h2 class="section-title">Achievements</h2>
+  <div class="ach-grid">
+    <div class="ach-card">
+      <h3>Winner — Data Analysis Competition</h3>
+      <p>QMH Statistics Club, Department of Statistics, University of Dhaka</p>
+      <p class="ach-year">2020</p>
+    </div>
+    <div class="ach-card">
+      <h3><a href="https://www.springer.com/journal/44230/updates/24020244" target="_blank" style="color:inherit;text-decoration:none;">Best Paper Award ↗</a></h3>
+      <p>Human-Centric Intelligent Systems, Springer</p>
+      <p class="ach-year">2022</p>
+    </div>
+    <div class="ach-card">
+      <h3>Government Honours Scholarship</h3>
+      <p>Directorate of Secondary and Higher Education, People's Republic of Bangladesh</p>
+      <p class="ach-year">2024</p>
+    </div>
+  </div>
+</section>
+
+<hr class="divider"/>
+
+<!-- CONTACT -->
+<section id="contact">
+  <p class="section-label">Get In Touch</p>
+  <h2 class="section-title">Contact</h2>
+  <div style="display:flex;gap:1.25rem;flex-wrap:wrap;">
+    <a class="btn btn-primary" href="mailto:XX@gmail.com">Email Me</a>
+    <a class="btn btn-outline" href="https://scholar.google.com/citations?user=eyDDrjsAAAAJ&hl=en" target="_blank">Google Scholar</a>
+    <a class="btn btn-outline" href="https://www.linkedin.com/in/mushfiq-stat/" target="_blank">LinkedIn</a>
+    <a class="btn btn-outline" href="https://www.facebook.com/mushi.rony/" target="_blank">Facebook</a>
+  </div>
+  <p style="margin-top:2rem;color:var(--muted);font-size:14px;">Department of Data Science · University of Mississippi Medical Center<br/>1315 N Jefferson St, Apt 216, Jackson, Mississippi 39202</p>
+</section>
+
+<footer>
+  <p>© 2026 Md. Mushfiqur Rahman &nbsp;·&nbsp; Built with HTML/CSS &nbsp;·&nbsp; <a href="https://scholar.google.com/citations?user=eyDDrjsAAAAJ&hl=en" target="_blank">Google Scholar</a></p>
+</footer>
 
 </body>
 </html>
