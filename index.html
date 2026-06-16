@@ -69,13 +69,32 @@
   .section-title { font-family: var(--serif); font-size: clamp(1.8rem, 3vw, 2.5rem); margin-bottom: 2.5rem; letter-spacing: -0.02em; }
   .divider { border: none; border-top: 1px solid var(--border); max-width: 1100px; margin: 0 auto; }
 
+  /* ---- UPDATED ABOUT SECTION ---- */
   .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; }
   .about-text p { color: var(--muted); margin-bottom: 1rem; line-height: 1.8; }
-  .interests-list { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; }
-  .interests-list li { font-size: 14px; color: var(--muted); padding-left: 1.2rem; position: relative; }
-  .interests-list li::before { content: '—'; position: absolute; left: 0; color: var(--accent); font-weight: 500; }
+  .about-text p:last-child { margin-bottom: 0; }
+
   .interest-card { background: var(--surface); border: 1px solid var(--border); border-radius: 4px; padding: 1.75rem; }
-  .interest-card h3 { font-family: var(--serif); font-size: 1.1rem; margin-bottom: 1rem; }
+  .interest-card h3 { font-family: var(--serif); font-size: 1.1rem; margin-bottom: 1.25rem; }
+
+  .interest-group { margin-bottom: 1.5rem; }
+  .interest-group:last-child { margin-bottom: 0; }
+  .interest-group-label {
+    font-size: 11px; text-transform: uppercase; letter-spacing: 0.1em;
+    color: var(--accent2); font-weight: 500; margin-bottom: 0.6rem;
+  }
+  .interests-list { list-style: none; display: flex; flex-direction: column; gap: 0.45rem; }
+  .interests-list li { font-size: 13.5px; color: var(--muted); padding-left: 1.2rem; position: relative; line-height: 1.5; }
+  .interests-list li::before { content: '—'; position: absolute; left: 0; color: var(--accent); font-weight: 500; }
+
+  /* MIND Center highlight pill */
+  .mind-pill {
+    display: inline-flex; align-items: center; gap: 6px;
+    background: var(--accent-light); color: var(--accent);
+    font-size: 12px; font-weight: 500; padding: 3px 10px;
+    border-radius: 2px; margin-bottom: 0.5rem;
+  }
+  .mind-pill::before { content: '●'; font-size: 8px; }
 
   .edu-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
   .edu-card { background: var(--surface); border: 1px solid var(--border); border-radius: 4px; padding: 1.75rem; }
@@ -149,7 +168,7 @@
   <div class="hero-text">
     <p class="hero-tagline">PhD Student · MS Biostatistics &amp; Data Science · UMMC</p>
     <h1>Md. <em>Mushfiqur</em> Rahman</h1>
-    <p class="hero-desc">Statistician and data scientist specializing in functional data analysis and biostatistics. Currently pursuing a PhD at the University of Mississippi Medical Center, with a focus on functional regression and neurocognitive analytics.</p>
+    <p class="hero-desc">Statistician and data scientist specializing in functional data analysis and biostatistics. Currently pursuing a PhD at the University of Mississippi Medical Center, with a focus on functional regression, plasma biomarker modeling, and neurocognitive analytics at the MIND Center.</p>
     <div class="hero-links">
       <a class="btn btn-primary" href="https://scholar.google.com/citations?user=eyDDrjsAAAAJ&hl=en" target="_blank">Google Scholar</a>
       <a class="btn btn-outline" href="files/cv.pdf" target="_blank" download>↓ Download CV</a>
@@ -189,21 +208,41 @@
   <h2 class="section-title">About Me</h2>
   <div class="about-grid">
     <div class="about-text">
-      <p>I am a third-year PhD student in Data Science at the University of Mississippi Medical Center (2024–present), where I also completed my MS in Biostatistics and Data Science. My research is currently focused on <strong>functional data analysis</strong>, with an emphasis on functional regression methods applied to complex biomedical signals and neurocognitive data.</p>
-      <p>Alongside my PhD, I work part-time as a <strong>Student Biostatistician at the MIND Center, UMMC</strong>, where I contribute to research projects at the intersection of neuroscience, sleep science, and statistical modeling.</p>
+      <p>I am a third-year PhD student in Data Science at the University of Mississippi Medical Center (2024–present), where I also completed my MS in Biostatistics and Data Science. My research centers on <strong>functional data analysis</strong>, with a particular emphasis on functional and variable domain regression methods applied to complex biomedical signals and neurocognitive outcomes.</p>
+      <p>Alongside my PhD, I work part-time as a <strong>Student Biostatistician at the MIND Center, UMMC</strong>. My work there focuses on the statistical analysis of aging and neurodegeneration, including modeling plasma biomarkers of <strong>Alzheimer's disease</strong> (such as amyloid-β, p-tau, and neurofilament light chain) and applying <strong>multistate models</strong> to characterize disease progression from normal cognition through mild cognitive impairment to dementia. I have contributed to research on cerebrovascular and Alzheimer's disease biomarkers in the ARIC cohort, with a focus on cognitive and mobility impairment.</p>
       <p>I hold a BS in Statistics from the University of Dhaka, and have prior professional experience at icddr,b and Save the Children Bangladesh, working on clinical trials and maternal health analytics.</p>
     </div>
     <div class="interest-card">
       <h3>Research Interests</h3>
-      <ul class="interests-list">
-        <li>Functional data analysis &amp; functional regression</li>
-        <li>Variable domain functional regression</li>
-        <li>Neurocognitive analytics &amp; sleep science (OSA)</li>
-        <li>Machine learning for clinical prediction</li>
-        <li>Biostatistics for randomized controlled trials</li>
-        <li>Diarrheal disease epidemiology &amp; surveillance</li>
-        <li>Maternal and child health indicators</li>
-      </ul>
+
+      <div class="interest-group">
+        <p class="interest-group-label">MIND Center · Neurodegeneration</p>
+        <ul class="interests-list">
+          <li>Alzheimer's disease &amp; dementia progression</li>
+          <li>Plasma biomarker modeling (amyloid-β, p-tau, NfL)</li>
+          <li>Multistate models for cognitive decline</li>
+          <li>Neurocognitive analytics &amp; sleep science (OSA)</li>
+          <li>Cerebrovascular disease &amp; aging cohort studies</li>
+        </ul>
+      </div>
+
+      <div class="interest-group">
+        <p class="interest-group-label">Statistical Methodology</p>
+        <ul class="interests-list">
+          <li>Functional data analysis &amp; functional regression</li>
+          <li>Variable domain functional regression</li>
+          <li>Machine learning for clinical prediction</li>
+          <li>Biostatistics for randomized controlled trials</li>
+        </ul>
+      </div>
+
+      <div class="interest-group">
+        <p class="interest-group-label">Global Health</p>
+        <ul class="interests-list">
+          <li>Diarrheal disease epidemiology &amp; surveillance</li>
+          <li>Maternal and child health indicators</li>
+        </ul>
+      </div>
     </div>
   </div>
 </section>
@@ -343,9 +382,10 @@
       <div class="exp-body">
         <h3>Student Biostatistician (Part-Time)</h3>
         <ul>
-          <li>Provide statistical support for neuroscience and aging research, focusing on gait speed and cognitive status</li>
-          <li>Apply functional regression and longitudinal methods to complex biomedical datasets</li>
-          <li>Collaborated on the project <em>"Associations of Alzheimer's Disease and Cerebrovascular Disease Biomarkers with Cognitive, Mobility, and Dual Impairment in the ARIC Study"</em> (2025), presented by MSTAR student Meredith Boles</li>
+          <li>Provide statistical support for neuroscience and aging research, focusing on gait speed, cognitive status, and neurodegeneration</li>
+          <li>Apply functional regression, multistate models, and longitudinal methods to complex biomedical datasets</li>
+          <li>Collaborate on Alzheimer's disease and cerebrovascular biomarker research using plasma measures (amyloid-β, p-tau, NfL) in the ARIC Study cohort</li>
+          <li>Contributed to the project <em>"Associations of Alzheimer's Disease and Cerebrovascular Disease Biomarkers with Cognitive, Mobility, and Dual Impairment in the ARIC Study"</em> (2025), presented by MSTAR student Meredith Boles</li>
           <li>Collaborate with clinical researchers on study design, analysis, and reporting</li>
         </ul>
       </div>
@@ -457,6 +497,7 @@
         <span class="skill-tag">Quarto</span>
         <span class="skill-tag">survival</span>
         <span class="skill-tag">maptools</span>
+        <span class="skill-tag">msm</span>
       </div>
     </div>
     <div class="skill-card">
